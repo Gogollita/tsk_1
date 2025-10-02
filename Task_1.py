@@ -1,5 +1,8 @@
 import os
+import getpass
+import socket
 import tkinter as tk
+import sys
 
 def expand(s:str):
   if "$HOME" in s:
@@ -24,7 +27,7 @@ def run_cmd():
     entry.delete(0, tk.END)  #чисти поле ввода
 
 root = tk.Tk()
-root.title("Эмулятор - [username@hostname]") #название окна
+root.title("Эмулятор " + getpass.getuser() + "@" + socket.gethostname())
 text = tk.Text(root, height=10, width=50) #текстовое поле для вывода
 text.pack()
 entry = tk.Entry(root, width=50) #поле для ввода
